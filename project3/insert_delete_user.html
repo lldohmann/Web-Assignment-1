@@ -1,0 +1,121 @@
+<!doctyle html>
+<html lang="en">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<title>Insert and Delete User</title>
+
+<body>
+	<div class="container" id="ctnr">
+
+	<div class="form-group">
+		<label for="userid">UserID</label>
+		<input type="text" class="form-control" id="userid">
+	</div>
+	<div class="form-group">
+		<label for="passwd">Password</label>
+		<input type="password" class="form-control" id="passwd">
+	</div>
+	<div class="form-group">
+		<label for="type">Type</label>
+		<input type="text" class="form-control" id="type">
+	</div>
+	<button class="btn btn-primary" id="sbtn">Submit</button>
+
+	<hr>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Action</th> <!-- Column names -->
+					<th>User ID</th>
+					<th>Type</th>
+				</tr>
+			</thead>
+			<tbody id="tbl">
+			</tbody>
+		</table>
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script>
+	function insertUser() {
+		// Get the submitted form values
+		var usr = document.getElementById("userid").value;
+		var psw = document.getElementById("passwd").value;
+		var typ = document.getElementById("type").value;
+
+		// Get the table body
+		var table = document.getElementById("tbl");
+
+		// Create a new table row
+		var trow = document.createElement("tr");
+
+		// Create three new table data cells
+		var td1 = document.createElement("td");
+		var td2 = document.createElement("td");
+		var td3 = document.createElement("td");
+
+		// Put content and value into the table data cells
+		td1.innerHTML = '<button class="btn btn-danger">delete</button>';
+		td2.innerHTML = usr;
+		td3.innerHTML = typ;
+
+		// Append the cells to the row
+		trow.appendChild(td1);
+		trow.appendChild(td2);
+		trow.appendChild(td3);
+
+		// Insert the row as the first child of the table body
+		table.insertBefore(trow, table.firstChild);
+
+		// Request p3.php and pass usr, psw and typ in the URL using the GET method
+		var xhr = new XMLHttpRequest();
+		xhr.open("GET", "insert_user_2.php?userid="+usr+"&passwd="+psw+"&type="+typ);
+		xhr.send();
+	}
+
+	var submitBtn = document.getElementById("sbtn");
+	submitBtn.addEventListener("click", insertUser); // Adding an event listener to button that calls custom function insertUser
+
+	function responseHandler() {
+	
+  	var table = document.getElementById("tbl");
+  
+  	var tdata = this.response;
+  	var tarray = JSON.parse(tdata);
+	
+	
+  	for(var i = 0; i < tarray.length; i++) {
+
+    	var trow = document.createElement("tr");
+
+    	var td1 = document.createElement("td");
+    	var td2 = document.createElement("td");
+    	var td3 = document.createElement("td");
+
+    	td1.innerHTML = '<button class="btn btn-danger">delete</button>';
+    	td2.innerHTML = tarray[i][0];
+    	td3.innerHTML = tarray[i][1];
+
+    	trow.appendChild(td1);
+    	trow.appendChild(td2);
+    	trow.appendChild(td3);
+
+	    table.appendChild(trow);		
+	  }
+	}	
+
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener("load", responseHandler);
+	xhr.open("GET", "insert_user_2.php"); // LOAD THE CONTENT OF THE PHP (ALL THE TABLE VARIABLES)
+	xhr.send();
+	</script>
+
+</body>
+
+</html>	

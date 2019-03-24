@@ -1,0 +1,129 @@
+.container {
+  border: 1px solid gray;
+}
+body {
+    background-color: darkseagreen; /* Add a neutral background color or gradient */
+    margin: 0px;
+}
+
+header, main {
+    background-color: darkcyan; /* Add a dark background color */
+    color:aliceblue; /* Light text */ 
+    overflow: auto; /* Set overflow to auto */
+    box-sizing: border-box; /* Set box-sizing to border-box */
+    width: 100%; /* Set width to 100% */
+
+    padding: 5%; /* Add padding so text is not too close to the edge */
+}
+
+header img {
+    float: right;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+header h1 {
+    float: left; /* The website title(h1) should float left */
+}
+
+header nav {
+    float: right; /* The navigation menu(nav) should float right */ 
+}
+
+header nav a {
+    display: inline-block; /* Set a tags in the nav to display inline-block */
+    border: 3px outset;  /* Add a border to make the links look more like buttons */
+    padding: 20px; /* Set the padding to make links look more like buttons */
+    background-color: aquamarine;
+}
+
+header nav a:hover {
+    background-color: aqua;
+}
+
+header nav ul {
+    padding: 0px; /* Set the padding ... of the ul to zero */
+    margin: 0px; /* Set the ... margin of the ul to zero. */
+    list-style: none;
+}
+
+header nav ul li {
+    float: left;  /* That float left to right */
+}
+
+
+main {
+    background-color: white; /* Set the background color to white */
+    color: black;
+}
+aside {
+    font-size: 13px; /* Make the font-size smaller */
+    padding: 3%; /* Add padding */
+    background-color: darkcyan;  /* And a very light background color */ /*no*/
+    color: aliceblue;
+}
+
+footer {
+    margin: 25px;
+    text-align: center; /* Make the text centered */
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+@media (min-width:700px) { /* for tablet */
+    
+    main {
+        box-shadow: 10px 10px #326146;  /* Add a box-shadow */
+        width: 650px;
+        margin: auto;
+        float: left;
+    }
+    
+    table {
+        float: left;
+    }
+    aside {
+        float: right;
+        clear: right;
+    }
+    section > h3 ,section > p {
+        clear: left;
+        float: left;
+    }
+    aside {
+        width: auto;
+    }
+    header {
+        top: 0px;
+        position: fixed;
+    }
+    section ul {
+        clear: left;
+        float: left;
+    }
+}
+
+@media (min-width: 1000px) { /* for desktop */
+    
+    div {
+        margin: auto;
+    }
+    header {
+        width: 300px;
+        float: left;
+        position: static;
+        box-shadow: 10px 10px #326146;
+        margin-bottom: 25px;
+    }
+    main {
+        float: right;
+        margin:auto;
+        margin-bottom: 25px;
+    }
+    footer {
+        clear: left;
+    }
+    
+}
