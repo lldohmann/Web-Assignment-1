@@ -1,0 +1,88 @@
+body {
+    background-color: darkseagreen; /* Add a neutral background color or gradient */
+}
+
+header, main {
+    background-color: darkcyan; /* Add a dark background color */
+    color: aliceblue; /* Light text */ 
+    overflow: auto; /* Set overflow to auto */
+    box-sizing: border-box; /* Set box-sizing to border-box */
+    width: 100%; /* Set width to 100% */
+}
+
+h1 {
+    float: left; /* The website title(h1) should float left */
+}
+
+nav {
+    float: right; /* The navigation menu(nav) should float right */
+}
+
+nav a {
+    display: inline-block; /* Set a tags in the nav to display inline-block */
+    border: outset; /* Transform the unordered list of links in the nav so they look like buttons */
+    float: inherit; /* That float left to right. */
+    padding: 20px; /* Set the padding to make links look more like buttons */
+    border: double; /* Add a border to make the links look more like buttons */
+}
+nav ul {
+    list-style: none;
+    padding: 0px; /* Set the padding ... of the ul to zero */
+    margin: 0px; /* Set the ... margin of the ul to zero. */
+    float: right; /* That float left to right */
+}
+
+header nav ul li {
+    float: left; /* that float left to right */
+    padding: 0px;
+    margin: 0px;
+}
+
+main {
+    background-color: white; /* Set the background color to white */
+    padding: 10%; /* Add padding so text is not too close to the edge */
+    box-shadow: 10px 10px #326146; /* Add a box-shadow */
+}
+
+aside {
+    font-size: 13px; /* Make the font-size smaller */
+    padding: 5% 5%; /* Add padding */
+    background-color:cyan; /* And a very light background color */
+}
+
+footer {
+    text-align: center; /* Make the text centered */
+}
+
+@media (min-width:700px) { /* for tablet */
+    
+    main {
+        width: 650px;
+        margin: auto;
+    }
+    header {
+        position: fixed;
+    }
+    aside {
+        width: 200px;
+        float:right;
+    }
+}
+
+@media (min-width: 1000px) { /* for desktop */
+    
+    div {
+        width: 950px;
+        margin: auto;
+    }
+    header, footer {
+        width: 300px;
+        float: left;
+    }
+    main {
+        float: right;
+    }
+    footer {
+        clear: left;
+    }
+}
